@@ -1,0 +1,16 @@
+---
+interface Props {
+    emoji: string;
+	text: string;
+    altText: string;
+}
+
+const { emoji, text, altText } = Astro.props;
+---
+
+<div class="text-center w-52">
+    <div class="w-28 h-28 mx-auto flex items-center justify-center rounded-3xl drop-shadow-xl" style="background-color: #080707">
+        <img src={emoji} alt={altText} class="w-16 h-16 mx-auto mb-2">
+    </div>
+    <p class="mt-4 md:text-2xl sm:text-lg font-bold">{text}</p>
+</div>
