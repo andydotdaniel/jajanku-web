@@ -1,6 +1,7 @@
 ---
 import DarkLayout from "../../layouts/DarkLayout.astro";
 import Contact from "../../components/Contact.astro";
+import Accordion from "../../components/Accordion.astro";
 
 const faqs = [
     {
@@ -23,7 +24,7 @@ const faqs = [
 ---
 
 <DarkLayout title="FAQs - Jajanku">
-    <div class="container mx-auto px-8 pb-16 pt-8" style="max-width:960px;">
+    <div class="container mx-auto md:px-8 px-6 pb-16 pt-8" style="max-width:960px;">
         <div class="mb-6">
             <span class="text-sm font-semibold mt-2 text-gray-400 mb-1">Jajanku</span>
         </div>
@@ -32,29 +33,7 @@ const faqs = [
             Frequently asked questions about <span class="text-color-primary-active">MailSave</span>
         </h1>
 
-        <div class="mx-auto mt-8 rounded-lg shadow-md border border-gray-400">
-            {
-                faqs.map((faq, index) => (
-                    <div
-                        class={
-                            "faq-item border-gray-600 py-6 px-6" +
-                            (index === faqs.length - 1 ? "" : " border-b")
-                        }
-                    >
-                        <button class="faq-question flex w-full justify-between items-center text-left text-white font-medium md:text-xl text-md">
-                            {faq.title}
-                            <img
-                                src="/img/ico-plus.svg"
-                                class="ml-4 faq-expand-icon"
-                            />
-                        </button>
-                        <p class="faq-answer mt-4 text-white hidden">
-                            {faq.content}
-                        </p>
-                    </div>
-                ))
-            }
-        </div>
+        <Accordion data={faqs} />
     </div>
 
     <hr class="border-gray-600 mt-14" />
@@ -65,29 +44,3 @@ const faqs = [
         />
     </div>
 </DarkLayout>
-
-<script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-        const faqItems = document.querySelectorAll(".faq-item");
-
-        faqItems.forEach((item) => {
-            const question = item.querySelector(".faq-question");
-            const answer = item.querySelector(".faq-answer");
-
-            if (!question || !answer) {
-                return;
-            }
-
-            const icon = question.querySelector(".faq-expand-icon");
-
-            if (!icon) {
-                return;
-            }
-
-            question.addEventListener("click", () => {
-                answer.classList.toggle("hidden");
-                icon.classList.toggle("rotate-45");
-            });
-        });
-    });
-</script>

@@ -1,0 +1,65 @@
+---
+interface Props {
+	data: any[];
+}
+
+const { data } = Astro.props;
+---
+
+<div class="mx-auto mt-8 rounded-lg shadow-md border border-gray-400">
+    {
+        data.map((item, index) => (
+            <div
+                class={
+                    "faq-item border-gray-600" +
+                    (index === data.length - 1 ? "" : " border-b")
+                }
+            >
+                <button class="faq-question flex w-full justify-between items-center text-left text-white font-medium md:text-xl text-md py-6 px-6">
+                    <div class="flex items-center">
+                        {item.icon && <img src={item.icon} class="w-8 h-8 mr-4 rounded-md" />}
+                        <h4 class="md:text-xl text-lg">{item.title}</h4>
+                    </div>
+                    <img
+                        src="/img/ico-plus.svg"
+                        class="ml-4 faq-expand-icon"
+                    />
+                </button>
+                <p class="faq-answer mb-6 text-white hidden px-6">
+                    {item.content}
+                    {
+                        item.attachments && item.attachments.map((attachment: string | null | undefined) => (
+                           <img src={attachment} class="w-full rounded-lg mt-3" />
+                        ))
+                    }
+                </p>
+            </div>
+        ))
+    }
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        const faqItems = document.querySelectorAll(".faq-item");
+
+        faqItems.forEach((item) => {
+            const question = item.querySelector(".faq-question");
+            const answer = item.querySelector(".faq-answer");
+
+            if (!question || !answer) {
+                return;
+            }
+
+            const icon = question.querySelector(".faq-expand-icon");
+
+            if (!icon) {
+                return;
+            }
+
+            question.addEventListener("click", () => {
+                answer.classList.toggle("hidden");
+                icon.classList.toggle("rotate-45");
+            });
+        });
+    });
+</script>

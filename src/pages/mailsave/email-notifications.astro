@@ -1,0 +1,63 @@
+---
+import DarkLayout from "../../layouts/DarkLayout.astro";
+import Contact from "../../components/Contact.astro";
+import Accordion from "../../components/Accordion.astro";
+
+const paymentAppExamples = [
+    {
+        title: 'myBCA',
+        icon: '/img/mailsave/logo-mybca.png',
+        content: 'Email notifications for QR payments using the myBCA app are enabled by default.'
+    },
+    {
+        title: 'Bank Jago',
+        icon: '/img/mailsave/logo-jago.png',
+        content: 'Navigate to More > tap Settings Icon on top right > select Notification Settings > Financial Activity, and turn on email notifications for Outgoing Transactions.',
+        attachments: [
+            '/img/mailsave/demos/jago-screen-0.jpg',
+            '/img/mailsave/demos/jago-screen-1.jpg',
+        ]
+    },
+    {
+        title: "Bank OCBC",
+        icon: '/img/mailsave/logo-ocbc.png',
+        content: "Email notifications for QR payments using the myBCA app are enabled by default.",
+    }
+];
+---
+
+<DarkLayout title="Enable Email Notifications - Jajanku">
+    <div class="container mx-auto md:px-8 px-6 pb-16 pt-8" style="max-width:960px;">
+        <div class="mb-6">
+            <span class="text-sm font-semibold mt-2 text-gray-400 mb-1">Jajanku</span>
+        </div>
+
+        <h1 class="md:text-6xl text-4xl font-bold mb-4 text-white">
+            Turn on email notifications for your <span class="text-color-primary-active">payment methods</span>.
+        </h1>
+
+        <p>
+            MailSave works best for people who frequently make payments using <span class="underline">QR codes or credit cards</span>. The providers for these payment methods
+            normally support email notifications which can be processed by MailSave to automatically save expenses.
+        </p>
+
+        <div class="flex flex-col items-center">
+            <img src="/img/mailsave/illustration-gmail-notification.png" alt="Email Notification" class="w-full mt-6 drop-shadow-lg" style="max-width:480px;" />
+        </div>
+
+        <div class="mt-12">
+            <h2>How to turn on email notifications in payment apps?</h2>
+            <p class="mt-4">Because Jajanku was developed in Indonesia, this section will give examples of how to turn on email notifications for several popular Indonesian banking and payment apps. Where applicable, the same principles can be applied for apps in other regions.</p>
+
+            <Accordion data={paymentAppExamples} />
+        </div>
+    </div>
+
+    <hr class="border-gray-600 mt-14" />
+    <div class="py-16">
+        <Contact
+            title="Have other questions?"
+            body="Please don't hesitate to send an email to:"
+        />
+    </div>
+</DarkLayout>
