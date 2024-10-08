@@ -25,14 +25,18 @@ const { data } = Astro.props;
                         class="ml-4 faq-expand-icon"
                     />
                 </button>
-                <p class="faq-answer mb-6 text-white hidden px-6">
-                    {item.content}
+                <div class="faq-answer mb-6 hidden px-6">
+                    <p class="text-white">{item.content}</p>
                     {
-                        item.attachments && item.attachments.map((attachment: string | null | undefined) => (
-                           <img src={attachment} class="w-full rounded-lg mt-3" />
-                        ))
+                        item.attachments && <div class="md:columns-2 md:mt-3">
+                            {
+                                item.attachments.map((attachment: string | null | undefined) => (
+                                    <img src={attachment} class="w-full rounded-lg md:mt-0 mt-3"/>
+                                ))
+                            }
+                        </div>
                     }
-                </p>
+                </div>
             </div>
         ))
     }
