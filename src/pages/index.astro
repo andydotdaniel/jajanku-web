@@ -7,17 +7,20 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Jajanku - Tracking expenses should be easy.">
 	<main class="mx-auto">
 		<div class="relative py-12 h-screen flex flex-col items-center justify-center" style="background-color: #080707">
-			<div class="absolute container left-1/2 transform -translate-x-1/2 top-6 px-8 flex flex-col justify-start" style="max-width:1140px;">
+			<div class="absolute container left-1/2 transform -translate-x-1/2 top-6 md:px-8 px-6 flex flex-col justify-start" style="max-width:1140px;">
 				<div class="flex flex-row items-center space-x-3">
 					<img src="/img/logo.svg" alt="Jajanku Logo" class="w-12">
 					<span class="text-md font-semibold mt-2 text-white mb-1">Jajanku</span>
 				</div>
 			</div>
 
-			<section class="justify-start w-full container mx-auto px-8" style="max-width:1140px;">
+			<section class="justify-start w-full container mx-auto md:px-8 px-6" style="max-width:1140px;">
 				<div class="container" style="max-width:960px;">
-					<h1 class="md:text-[102px] text-7xl font-black mb-12 text-white">Tracking expenses should be <span class="relative" style="color: #D2FF99"><p id="keyword"></p></span></h1>
-					<div class="space-x-4">
+					<h1 class="md:text-[102px] md:leading-[112px] text-[68px] leading-[76px] font-black text-white">Tracking expenses should be <span class="md:inline hidden relative" style="color: #D2FF99;"><p id="keyword_desktop" class="keyword-shuffle" style="left: 20px;"></p></span></h1>
+					<div class="relative md:hidden block h-[68px] -mt-3">
+						<span id="keyword_mobile" class="text-[68px] leading-[76px] font-black keyword-shuffle" style="color: #D2FF99"></span>
+					</div>
+					<div class="space-x-4 mt-12">
 						<a href="#" class="inline-block"><img src="/img/badge-app-store.png" alt="Download on App Store" class="md:h-10 h-9"></a>
 						<a href="#" class="inline-block"><img src="/img/badge-google-play.png" alt="Get it on Google Play" class="md:h-10 h-9"></a>
 					</div>
@@ -88,10 +91,9 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-	#keyword {
+	.keyword-shuffle {
 		position: absolute;
 		bottom: 0;
-		left: 20px;
 		opacity: 0;
 		animation: fade-in 1.8s ease-in-out forwards infinite;
 	}
@@ -104,11 +106,11 @@ import Layout from '../layouts/Layout.astro';
 		40%,
 		90% {
 			opacity: 1;
-			top: 9px;
+			top: 6px;
 		}
 		100% {
 			opacity: 0;
-			top: 9px;
+			top: 6px;
 		}
 	}
 
@@ -153,7 +155,15 @@ import Layout from '../layouts/Layout.astro';
 			currentIndex = 0;
 		}
 
-		const element = document.getElementById("keyword")
+		let element: HTMLElement | null;
+		const desktopElement = document.getElementById('keyword_desktop')!;
+
+		if (window.getComputedStyle(desktopElement.parentElement!).getPropertyValue('display') !== 'none') {
+			element = desktopElement;
+		} else {
+			element = document.getElementById('keyword_mobile')!;
+		}
+
 		if (element != null) {
 			element.textContent = words[currentIndex];
 		}
