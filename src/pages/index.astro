@@ -6,32 +6,37 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Jajanku - Tracking expenses should be easy.">
 	<main class="mx-auto">
 		<div class="relative py-12 h-screen flex flex-col items-center justify-center" style="background-color: #080707">
-			<div class="absolute container left-1/2 transform -translate-x-1/2 top-6 px-8 flex flex-col justify-start" style="max-width:1280px;">
+			<div class="absolute container left-1/2 transform -translate-x-1/2 top-6 px-8 flex flex-col justify-start" style="max-width:1140px;">
 				<div class="flex flex-row items-center space-x-3">
 					<img src="/img/logo.svg" alt="Jajanku Logo" class="w-12">
 					<span class="text-md font-semibold mt-2 text-white mb-1">Jajanku</span>
 				</div>
 			</div>
 
-			<section class="justify-start w-full container mx-auto px-8" style="max-width:1280px;">
+			<section class="justify-start w-full container mx-auto px-8" style="max-width:1140px;">
 				<div class="container" style="max-width:960px;">
-					<h1 class="md:text-[96px] sm:text-7xl font-extrabold mb-12 text-white">Tracking expenses should be <span style="color: #D2FF99">easy</span>.</h1>
+					<h1 class="md:text-[102px] text-7xl font-black mb-12 text-white">Tracking expenses should be <span style="color: #D2FF99">easy</span>.</h1>
 					<div class="space-x-4">
-						<a href="#" class="inline-block"><img src="/img/badge-app-store.png" alt="Download on App Store" class="h-10"></a>
-						<a href="#" class="inline-block"><img src="/img/badge-google-play.png" alt="Get it on Google Play" class="h-10"></a>
+						<a href="#" class="inline-block"><img src="/img/badge-app-store.png" alt="Download on App Store" class="md:h-10 h-9"></a>
+						<a href="#" class="inline-block"><img src="/img/badge-google-play.png" alt="Get it on Google Play" class="md:h-10 h-9"></a>
 					</div>
 				</div>
 			</section>
 		</div>
 
-		<div class="relative container mx-auto -mt-60 px-4 pb-8" style="max-width:1280px;">
-			<section class="text-center grid grid-cols-3 mb-12 flex flex-row items-center justify-center">
-				<p class="text-left text-6xl font-bold w-xl">Straight to the point.</p>
-				<img src="/img/demo-1.png" alt="App Screenshot" class="mx-auto w-108 mb-6">
-				<p class="text-left text-lg w-xl">A user interface built on a foundation of simplicity to accomplish what you need with Jajanku as quickly as possible.</p>
+		<div class="relative container mx-auto md:-mt-60 -mt-40 px-4 pb-8" style="max-width:1140px;">
+			<section class="text-center md:grid md:grid-cols-2 mb-12 px-4 flex flex-col items-center justify-center">
+				<div class="md:pr-8">
+					<img src="/img/demo-1.png" alt="App Screenshot" class="mx-auto md:w-108 mb-4">
+				</div>
+
+				<div>
+					<p class="text-left md:text-[86px] text-[64px] md:leading-[92px] leading-[72px] font-extrabold w-xl block">Straight to the point.</p>
+					<p class="text-left md:text-2xl text-lg w-xl mt-6">A user interface built on a foundation of simplicity to accomplish what you need with Jajanku as quickly as possible.</p>
+				</div>
 			</section>
 
-			<section class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+			<section class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 place-items-center md:mt-0 mt-24">
 				<EmojiBlock emoji="/img/ico-emoji-running.png" text="No sign-up required" altText="No sign-up required" />
 				<EmojiBlock emoji="/img/ico-emoji-money-bag.png" text="Track daily expenses" altText="Track daily expenses" />
 				<EmojiBlock emoji="/img/ico-emoji-calendar.png" text="See the day's remaining budget" altText="See the day's remaining budget" />
@@ -40,7 +45,7 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</main>
 
-	<footer class="text-center text-sm mt-16 md:pb-16 sm:pb-8">
+	<footer class="text-center text-sm md:mt-16 mt-8 md:pb-16 pb-12">
 		<img src=/img/ico-emoji-indonesia.png class="w-6 h-6 mx-auto mb-2">
 		<p class="mb-8 text-lg font-bold text-gray-800">Developed in Indonesia</p>
 		<p><a href="/privacy-policy" class="text-gray-400 hover:text-gray-700">Privacy Policy</a> | <a href="#" class="text-gray-400 hover:text-gray-700">Contact</a></p>
