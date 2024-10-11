@@ -25,21 +25,25 @@ import Layout from '../layouts/Layout.astro';
 			</section>
 		</div>
 
-		<div class="relative container mx-auto md:-mt-60 -mt-40 px-4 pb-8" style="max-width:1140px;">
+		<div class="relative container mx-auto md:-mt-60 -mt-40 md:px-4 px-2 pb-8" style="max-width:1140px;">
 			<section class="text-center md:grid md:grid-cols-2 mb-12 px-4 flex flex-col items-center justify-center">
 				<div class="md:pr-8">
-					<img src="/img/demo-1.png" alt="App Screenshot" class="mx-auto md:w-11/12 mb-4">
+					<img src="/img/demo-1.png" alt="App Screenshot" class="mx-auto md:w-11/12">
 				</div>
 
-				<div>
-					<p class="text-left md:text-[86px] text-[64px] md:leading-[92px] leading-[72px] font-extrabold w-xl block">Straight to the point.</p>
+				<div class="animate-text-hidden md:mt-0 mt-6">
+					<h2 class="text-left md:text-[86px] text-[52px] md:leading-[92px] leading-[60px] font-extrabold w-xl block">Straight to the point.</h2>
 					<p class="text-left md:text-2xl text-lg w-xl mt-6">A user interface built on a foundation of simplicity to accomplish what you need as quickly as possible.</p>
 				</div>
 			</section>
 
-			<section class="text-left mb-12 px-4 items-center justify-center">
-				<div class="w-9/12">
-					<p class="md:text-[86px] text-[64px] md:leading-[92px] leading-[72px] font-extrabold block">Keep yourself accountable.</p>
+			<div class="px-4 md:hidden block flex justify-center animate-text-hidden md:mt-0 mt-16">
+				<hr class="bg-zinc-300 w-[2px] h-48" />
+			</div>
+
+			<section class="text-left mb-12 px-4 items-center justify-center md:mt-40 mt-16">
+				<div class="animate-text-hidden md:w-9/12 w-full">
+					<h2 class="md:text-[86px] text-[52px] md:leading-[92px] leading-[60px] font-extrabold block">Stay on track.</h2>
 					<p class="md:text-2xl text-lg mt-6">Review your expenses to see if you're on track, and zoom out with monthly breakdowns to discover what you spend the most on.</p>
 				</div>
 
@@ -48,25 +52,30 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</section>
 
-			<section class="text-left md:grid md:grid-cols-2 mb-12 px-4 flex flex-col items-center justify-center">
+			<section class="text-left md:grid md:grid-cols-2 mb-12 px-4 flex flex-col items-center justify-center md:mt-40 mt-24">
 				<div>
-					<div class="mb-16">
+					<div class="mb-16 animate-text-hidden">
 						<Quote text={"Two weeks into the month, and I realize I've spent way too much."} authorName={"Andrew Daniel"} authorTitle={"Professional Overspender"} />
 					</div>
-					<p class="md:text-[86px] text-[64px] md:leading-[92px] leading-[72px] font-extrabold w-xl block">Be mindful everyday.</p>
-					<p class="md:text-2xl text-lg w-xl mt-6">Do you find yourself always going over your monthly budget? Jajanku believes in setting daily budgets because adding up all the small stuff leads to something big.</p>
+
+					<div class="animate-text-hidden md:mt-0 mt-24">
+						<h2 class="md:text-[86px] text-[52px] md:leading-[92px] leading-[60px] font-extrabold w-xl block">Be mindful everyday.</h2>
+						<p class="md:text-2xl text-lg w-xl mt-6">Do you find yourself always going over your monthly budget? Jajanku believes in setting daily budgets because adding up all the small stuff leads to something big.</p>
+					</div>
 				</div>
 
-				<div class="md:pl-8">
+				<div class="md:pl-8 md:mt-0 mt-4">
 					<img src="/img/demo-4.png" alt="App Screenshot" class="mx-auto md:w-11/12">
 				</div>
 			</section>
 
-			<section class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 place-items-center md:mt-0 mt-24">
-				<EmojiBlock emoji="/img/ico-emoji-running.png" text="No sign-up required" altText="No sign-up required" />
-				<EmojiBlock emoji="/img/ico-emoji-money-bag.png" text="Track daily expenses" altText="Track daily expenses" />
-				<EmojiBlock emoji="/img/ico-emoji-calendar.png" text="See the day's remaining budget" altText="See the day's remaining budget" />
-				<EmojiBlock emoji="/img/ico-emoji-lock.png" text="Data secured offline on device" altText="Data secured offline on device" />
+			<section class="mb-12 md:mt-40 mt-24">
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-8 place-items-center">
+					<EmojiBlock emoji="/img/ico-emoji-running.png" text="No sign-up required" altText="No sign-up required" />
+					<EmojiBlock emoji="/img/ico-emoji-money-bag.png" text="Track daily expenses" altText="Track daily expenses" />
+					<EmojiBlock emoji="/img/ico-emoji-calendar.png" text="See the day's remaining budget" altText="See the day's remaining budget" />
+					<EmojiBlock emoji="/img/ico-emoji-lock.png" text="Data secured offline on device" altText="Data secured offline on device" />
+				</div>
 			</section>
 		</div>
 	</main>
@@ -77,3 +86,37 @@ import Layout from '../layouts/Layout.astro';
 		<p><a href="/privacy-policy" class="text-gray-400 hover:text-gray-700">Privacy Policy</a> | <a href="#" class="text-gray-400 hover:text-gray-700">Contact</a></p>
 	</footer>
 </Layout>
+
+<style>
+	.animate-text-hidden {
+		opacity: 0;
+		filter: blur(1px);
+		transform: translateY(20px);
+		transition: all 0.5s ease-in-out;
+	}
+
+	.show-animate-text-hidden {
+		filter: blur(0);
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	@media (prefers-reduced-motion) {
+		.animate-text-hidden {
+			transition: none;
+		}
+	}
+</style>
+
+<script>
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add("show-animate-text-hidden");
+			}
+		});
+	})
+
+	const hiddenAnimateElements = document.querySelectorAll(".animate-text-hidden");
+	hiddenAnimateElements.forEach((element) => { observer.observe(element); })
+</script>
