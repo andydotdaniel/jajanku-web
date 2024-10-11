@@ -16,7 +16,7 @@ import Layout from '../layouts/Layout.astro';
 
 			<section class="justify-start w-full container mx-auto px-8" style="max-width:1140px;">
 				<div class="container" style="max-width:960px;">
-					<h1 class="md:text-[102px] text-7xl font-black mb-12 text-white">Tracking expenses should be <span style="color: #D2FF99">easy</span>.</h1>
+					<h1 class="md:text-[102px] text-7xl font-black mb-12 text-white">Tracking expenses should be <span class="relative" style="color: #D2FF99"><p id="keyword"></p></span></h1>
 					<div class="space-x-4">
 						<a href="#" class="inline-block"><img src="/img/badge-app-store.png" alt="Download on App Store" class="md:h-10 h-9"></a>
 						<a href="#" class="inline-block"><img src="/img/badge-google-play.png" alt="Get it on Google Play" class="md:h-10 h-9"></a>
@@ -88,6 +88,30 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+	#keyword {
+		position: absolute;
+		bottom: 0;
+		left: 20px;
+		opacity: 0;
+		animation: fade-in 1.8s ease-in-out forwards infinite;
+	}
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+			top: 30px;
+		}
+		40%,
+		90% {
+			opacity: 1;
+			top: 9px;
+		}
+		100% {
+			opacity: 0;
+			top: 9px;
+		}
+	}
+
 	.animate-text-hidden {
 		opacity: 0;
 		filter: blur(1px);
@@ -116,7 +140,26 @@ import Layout from '../layouts/Layout.astro';
 			}
 		});
 	})
-
 	const hiddenAnimateElements = document.querySelectorAll(".animate-text-hidden");
 	hiddenAnimateElements.forEach((element) => { observer.observe(element); })
+</script>
+
+<script>
+	let currentIndex = 0;
+	const words = ['easy.', 'private.', 'daily.', 'yours.'];
+
+	function shuffleWords() {
+		if (currentIndex === words.length) {
+			currentIndex = 0;
+		}
+
+		const element = document.getElementById("keyword")
+		if (element != null) {
+			element.textContent = words[currentIndex];
+		}
+
+		currentIndex++;
+	}
+	shuffleWords();
+	window.setInterval(shuffleWords, 1800);
 </script>
