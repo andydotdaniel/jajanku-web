@@ -9,7 +9,7 @@ Inside of this project, you'll see the following folders and files:
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   └── favicon.ico
 │   └── img/
 ├── src/
 │   ├── components/
