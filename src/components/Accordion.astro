@@ -43,27 +43,25 @@ const { data } = Astro.props;
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-        const faqItems = document.querySelectorAll(".faq-item");
+    const faqItems = document.querySelectorAll(".faq-item");
 
-        faqItems.forEach((item) => {
-            const question = item.querySelector(".faq-question");
-            const answer = item.querySelector(".faq-answer");
+    faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
 
-            if (!question || !answer) {
-                return;
-            }
+        if (!question || !answer) {
+            return;
+        }
 
-            const icon = question.querySelector(".faq-expand-icon");
+        const icon = question.querySelector(".faq-expand-icon");
 
-            if (!icon) {
-                return;
-            }
+        if (!icon) {
+            return;
+        }
 
-            question.addEventListener("click", () => {
-                answer.classList.toggle("hidden");
-                icon.classList.toggle("rotate-45");
-            });
+        question.addEventListener("click", () => {
+            answer.classList.toggle("hidden");
+            icon.classList.toggle("rotate-45");
         });
     });
 </script>

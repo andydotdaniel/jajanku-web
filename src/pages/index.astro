@@ -188,11 +188,19 @@ import Layout from '../layouts/Layout.astro';
 </script>
 
 <script>
-	const contactLink = document.getElementById("contact-link")!;
 	const contactModal = document.getElementById("contact-modal")!;
 
+	function showContactModal() {
+		contactModal.classList.remove("hidden");
+	  	contactModal.classList.add("animate-show");
+	}
+
+	if (/#contact/.test(window.location.href)) {
+		showContactModal();
+	}
+
+	const contactLink = document.getElementById("contact-link")!;
 	contactLink.addEventListener("click", () => {
-	  contactModal.classList.remove("hidden");
-	  contactModal.classList.add("animate-show");
+		showContactModal();
     });
 </script>

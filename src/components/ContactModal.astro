@@ -67,13 +67,11 @@ import Contact from "./Contact.astro";
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", (event) => {
-    const modalDismiss = document.getElementById("modal-dismiss")!;
-    const contactModal = document.getElementById("contact-modal")!;
+  const modalDismiss = document.getElementById("modal-dismiss")!;
+  const contactModal = document.getElementById("contact-modal")!;
 
-    modalDismiss.addEventListener("click", () => {
-      contactModal.classList.remove("animate-show");
-      contactModal.classList.add("animate-hidden");
-    });
+  modalDismiss.addEventListener("click", () => {
+    contactModal.classList.remove("animate-show");
+    contactModal.classList.add("animate-hidden");
   });
 </script>
