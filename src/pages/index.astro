@@ -17,9 +17,9 @@ import Layout from '../layouts/Layout.astro';
 
 			<section class="justify-start w-full container mx-auto md:px-8 px-6" style="max-width:1140px;">
 				<div class="container" style="max-width:960px;">
-					<h1 class="-mt-14 md:text-[102px] md:leading-[112px] text-[68px] leading-[76px] font-black text-white">Tracking expenses should be <span class="md:inline hidden relative" style="color: #D2FF99;"><p id="keyword_desktop" class="hidden keyword-shuffle" style="left: 20px;"></p></span></h1>
+					<h1 class="-mt-14 md:text-[102px] md:leading-[112px] text-[68px] leading-[76px] font-black text-white">Tracking expenses should be <span class="md:inline hidden relative" style="color: #D2FF99;"><p id="keyword_desktop" class="keyword-shuffle" style="left: 20px;"></p></span></h1>
 					<div class="relative md:hidden block h-[68px] -mt-3">
-						<span id="keyword_mobile" class="text-[68px] leading-[76px] font-black hidden keyword-shuffle" style="color: #D2FF99"></span>
+						<span id="keyword_mobile" class="text-[68px] leading-[76px] font-black keyword-shuffle" style="color: #D2FF99"></span>
 					</div>
 					<div class="space-x-4 md:mt-12 mt-14">
 						<a href="https://apps.apple.com/id/app/jajanku/id6499272232" target="_blank" class="inline-block"><img src="/img/badge-app-store.png" alt="Download on App Store" class="md:h-10 h-9"></a>
@@ -103,11 +103,22 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-	.keyword-shuffle-animate {
+	.keyword-shuffle {
 		position: absolute;
 		bottom: 0;
 		opacity: 0;
-		animation: fade-in 1.8s ease-in-out forwards infinite;
+		top: 30px;
+		transition: all 0.60s ease-out;
+	}
+
+	.keyword-shuffle-animate-in {
+		opacity: 1;
+		top: 5px;
+	}
+
+	.keyword-shuffle-animate-out {
+		opacity: 0;
+		top: 30px;
 	}
 
 	@keyframes fade-in {
@@ -182,19 +193,27 @@ import Layout from '../layouts/Layout.astro';
 		return currentIndex + 1;
 	}
 
-	function runShuffleTimer(index: number) {
-		const currentIndex = shuffleWords(index);
-		setTimeout(runShuffleTimer, 1800, currentIndex);
-	}
+	function runShuffleTimer(index: number, state: number) {
+		const shuffleElements = document.querySelectorAll('.keyword-shuffle');
+		const newState = state + 1;
+		const interval = 1500;
 
-	const shuffleElements = document.querySelectorAll('.keyword-shuffle');
-	if (shuffleElements.length > 0) {
-		shuffleElements.forEach((element) => {
-			element.classList.remove('hidden');
-			element.classList.add('keyword-shuffle-animate');
-		});
-		runShuffleTimer(0);
+		if (state % 2 === 0) {
+			const currentIndex = shuffleWords(index);
+			shuffleElements.forEach((element) => {
+				element.classList.remove('keyword-shuffle-animate-out');
+				element.classList.add('keyword-shuffle-animate-in');
+			});
+			setTimeout(runShuffleTimer, interval, currentIndex, newState);
+		} else {
+			shuffleElements.forEach((element) => {
+				element.classList.remove('keyword-shuffle-animate-in');
+				element.classList.add('keyword-shuffle-animate-out');
+			});
+			setTimeout(runShuffleTimer, interval, index, newState);
+		}	
 	}
+	runShuffleTimer(0, 0);
 </script>
 
 <script>
