@@ -1,4 +1,6 @@
 ---
+import Contact from '../components/Contact.astro';
+import ContactModal from '../components/ContactModal.astro';
 import EmojiBlock from '../components/EmojiBlock.astro'
 import Quote from '../components/Quote.astro';
 import Layout from '../layouts/Layout.astro';
@@ -84,8 +86,8 @@ import Layout from '../layouts/Layout.astro';
 	</main>
 
 	
-	<div class="md:mt-12 mt-14 mx-auto text-center">
-		<h3 class="font-extrabold text-5xl">Free to download, free to use.</h3>
+	<div class="md:mt-12 mt-14 mx-auto text-center px-6">
+		<h3 class="font-extrabold md:text-5xl text-4xl">Free to download, free to use.</h3>
 		<div class="space-x-4 mt-8">
 			<a href="https://apps.apple.com/id/app/jajanku/id6499272232" target="_blank" class="inline-block"><img src="/img/badge-app-store.png" alt="Download on App Store" class="md:h-10 h-9"></a>
 			<a href="https://play.google.com/store/apps/details?id=com.andydotdaniel.jajanku" target="_blank" class="inline-block"><img src="/img/badge-google-play.png" alt="Get it on Google Play" class="md:h-10 h-9"></a>
@@ -95,8 +97,10 @@ import Layout from '../layouts/Layout.astro';
 	<footer class="text-center text-sm md:mt-36 mt-8 md:pb-16 pb-12">
 		<img src=/img/ico-emoji-indonesia.png class="w-6 h-6 mx-auto mb-2">
 		<p class="mb-8 text-lg font-bold text-gray-800">Developed in Indonesia</p>
-		<p><a href="/privacy-policy" class="text-gray-400 hover:text-gray-700">Privacy Policy</a> | <a href="#" class="text-gray-400 hover:text-gray-700">Contact</a></p>
+		<p><a href="/privacy-policy" class="text-gray-400 hover:text-gray-700">Privacy Policy</a> | <span id="contact-link" class="text-gray-400 hover:text-gray-700 cursor-pointer">Contact</span></p>
 	</footer>
+
+	<ContactModal />
 </Layout>
 
 <style>
@@ -181,4 +185,14 @@ import Layout from '../layouts/Layout.astro';
 	}
 	shuffleWords();
 	window.setInterval(shuffleWords, 1800);
+</script>
+
+<script>
+	const contactLink = document.getElementById("contact-link")!;
+	const contactModal = document.getElementById("contact-modal")!;
+
+	contactLink.addEventListener("click", () => {
+	  contactModal.classList.remove("hidden");
+	  contactModal.classList.add("animate-show");
+    });
 </script>
