@@ -184,12 +184,10 @@ import Layout from '../layouts/Layout.astro';
 
 	function runShuffleTimer(index: number) {
 		const currentIndex = shuffleWords(index);
-		console.log(currentIndex);
-		setTimeout(runShuffleTimer, 1800, currentIndex);
+		setTimeout(runShuffleTimer, 1800, currentIndex);	
 	}
 
-	const index = 0;
-	runShuffleTimer(index);
+	runShuffleTimer(0);
 </script>
 
 <script>
