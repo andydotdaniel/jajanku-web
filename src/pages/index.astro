@@ -211,9 +211,12 @@ import Layout from '../layouts/Layout.astro';
 				element.classList.add('keyword-shuffle-animate-out');
 			});
 			setTimeout(runShuffleTimer, interval, index, newState);
-		}	
+		}
 	}
-	runShuffleTimer(0, 0);
+
+	window.onload = () => {
+		runShuffleTimer(0, 0);
+	};
 </script>
 
 <script>
