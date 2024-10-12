@@ -17,9 +17,9 @@ import Layout from '../layouts/Layout.astro';
 
 			<section class="justify-start w-full container mx-auto md:px-8 px-6" style="max-width:1140px;">
 				<div class="container" style="max-width:960px;">
-					<h1 class="-mt-14 md:text-[102px] md:leading-[112px] text-[68px] leading-[76px] font-black text-white">Tracking expenses should be <span class="md:inline hidden relative" style="color: #D2FF99;"><p id="keyword_desktop" class="keyword-shuffle" style="left: 20px;"></p></span></h1>
+					<h1 class="-mt-14 md:text-[102px] md:leading-[112px] text-[68px] leading-[76px] font-black text-white">Tracking expenses should be <span class="md:inline hidden relative" style="color: #D2FF99;"><p id="keyword_desktop" class="keyword-shuffle" style="left: 20px;">easy.</p></span></h1>
 					<div class="relative md:hidden block h-[68px] -mt-3">
-						<span id="keyword_mobile" class="text-[68px] leading-[76px] font-black keyword-shuffle" style="color: #D2FF99"></span>
+						<span id="keyword_mobile" class="text-[68px] leading-[76px] font-black keyword-shuffle" style="color: #D2FF99">easy.</span>
 					</div>
 					<div class="space-x-4 md:mt-12 mt-14">
 						<a href="https://apps.apple.com/id/app/jajanku/id6499272232" target="_blank" class="inline-block"><img src="/img/badge-app-store.png" alt="Download on App Store" class="md:h-10 h-9"></a>
@@ -184,10 +184,10 @@ import Layout from '../layouts/Layout.astro';
 
 	function runShuffleTimer(index: number) {
 		const currentIndex = shuffleWords(index);
-		setTimeout(runShuffleTimer, 1800, currentIndex);	
+		setTimeout(runShuffleTimer, 1800, currentIndex);
 	}
 
-	runShuffleTimer(0);
+	setTimeout(runShuffleTimer, 1800, 1);
 </script>
 
 <script>
