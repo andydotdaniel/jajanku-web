@@ -159,10 +159,9 @@ import Layout from '../layouts/Layout.astro';
 </script>
 
 <script>
-	let currentIndex = 0;
-	const words = ['easy.', 'private.', 'daily.', 'yours.'];
+	function shuffleWords(currentIndex: number) {
+		const words = ['easy.', 'private.', 'daily.', 'yours.'];
 
-	function shuffleWords() {
 		if (currentIndex === words.length) {
 			currentIndex = 0;
 		}
@@ -180,10 +179,17 @@ import Layout from '../layouts/Layout.astro';
 			element.textContent = words[currentIndex];
 		}
 
-		currentIndex++;
+		return currentIndex + 1;
 	}
-	shuffleWords();
-	window.setInterval(shuffleWords, 1800);
+
+	function runShuffleTimer(index: number) {
+		const currentIndex = shuffleWords(index);
+		console.log(currentIndex);
+		setTimeout(runShuffleTimer, 1800, currentIndex);
+	}
+
+	const index = 0;
+	runShuffleTimer(index);
 </script>
 
 <script>
