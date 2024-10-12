@@ -5,7 +5,7 @@ import Quote from '../components/Quote.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Jajanku - Tracking expenses should be easy.">
+<Layout title="Jajanku - Tracking Expenses Should Be Easy">
 	<main class="mx-auto">
 		<div class="relative py-12 h-screen flex flex-col items-center justify-center" style="background-color: #080707">
 			<div class="absolute container left-1/2 transform -translate-x-1/2 top-6 md:px-8 px-6 flex flex-col justify-start" style="max-width:1140px;">
@@ -214,6 +214,7 @@ import Layout from '../layouts/Layout.astro';
 		}
 	}
 
+	// Start animation in onLoad event otherwise animation might not run correctly
 	window.onload = () => {
 		runShuffleTimer(0, 0);
 	};
