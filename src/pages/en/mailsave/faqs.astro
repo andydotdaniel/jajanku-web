@@ -1,15 +1,13 @@
 ---
-export const prerender = false;
+import DarkLayout from "../../../layouts/DarkLayout.astro";
+import Contact from "../../../components/Contact.astro";
+import Accordion from "../../../components/Accordion.astro";
 
-import DarkLayout from "../../layouts/DarkLayout.astro";
-import Contact from "../../components/Contact.astro";
-import Accordion from "../../components/Accordion.astro";
+import strings from "../../../strings.json";
 
-import strings from "../../strings.json";
-
-const languageCode = Astro.url.searchParams.get('lang') || 'en';
+const languageCode = 'en';
 const faqs = strings[languageCode as keyof typeof strings].faqs.content;
-const preTitle = strings[languageCode as keyof typeof strings].faqs.preTitle;
+const preTitle = strings[languageCode as    keyof typeof strings].faqs.preTitle;
 
 const contact = strings[languageCode as keyof typeof strings].faqs.contact;
 ---

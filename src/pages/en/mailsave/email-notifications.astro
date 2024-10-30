@@ -1,0 +1,63 @@
+---
+import DarkLayout from "../../../layouts/DarkLayout.astro";
+import Contact from "../../../components/Contact.astro";
+import Accordion from "../../../components/Accordion.astro";
+
+import strings from "../../../strings.json";
+
+const languageCode = 'en';
+const paymentAppExamples = strings[languageCode as keyof typeof strings].emailNotifications.paymentAppExamples;
+const contact = strings[languageCode as keyof typeof strings].emailNotifications.contact;
+
+const preTitle = strings[languageCode as keyof typeof strings].emailNotifications.content.preTitle;
+const titleHighlight = strings[languageCode as keyof typeof strings].emailNotifications.content.titleHighlight;
+
+const bodyOne = strings[languageCode as keyof typeof strings].emailNotifications.content.bodyOne;
+const bodyTwo = strings[languageCode as keyof typeof strings].emailNotifications.content.bodyTwo;
+const bodyThree = strings[languageCode as keyof typeof strings].emailNotifications.content.bodyThree;
+
+const illustrationUrl = strings[languageCode as keyof typeof strings].emailNotifications.content.illustrationUrl;
+
+const sectionOne = strings[languageCode as keyof typeof strings].emailNotifications.content.sections[0];
+const sectionTwo = strings[languageCode as keyof typeof strings].emailNotifications.content.sections[1];
+---
+
+<DarkLayout title="Enable Email Notifications - Jajanku">
+    <div class="container mx-auto md:px-8 px-6 pb-16 pt-8" style="max-width:960px;">
+        <div class="mb-6">
+            <span class="md:block hidden text-sm font-semibold mt-2 text-gray-400 mb-1">Jajanku</span>
+        </div>
+
+        <h1 class="md:text-6xl text-4xl font-bold mb-4 text-white">
+            {preTitle} <span class="text-color-primary-active">{titleHighlight}</span>.
+        </h1>
+
+        <p>
+            {bodyOne} <span class="underline">{bodyTwo}</span>. {bodyThree}
+        </p>
+
+        <div class="flex flex-col items-center">
+            <img src={illustrationUrl} alt="Email Notification" class="w-full mt-6 drop-shadow-lg" style="max-width:480px;" />
+        </div>
+
+        <div class="mt-12">
+            <h2>{sectionOne.title}</h2>
+            <p class="mt-4">{sectionOne.body}</p>
+
+            <Accordion data={paymentAppExamples} />
+        </div>
+
+        <div class="mt-12">
+            <h2>{sectionTwo.title}</h2>
+            <p class="mt-4">{sectionTwo.body}</p>
+        </div>
+    </div>
+
+    <hr class="border-gray-600" />
+    <div class="py-12">
+        <Contact
+            title={contact.title}
+            body={contact.body}
+        />
+    </div>
+</DarkLayout>
