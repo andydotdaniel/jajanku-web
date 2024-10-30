@@ -1,26 +1,17 @@
 ---
+export const prerender = false;
+
 import DarkLayout from "../../layouts/DarkLayout.astro";
 import Contact from "../../components/Contact.astro";
 import Accordion from "../../components/Accordion.astro";
 
-const faqs = [
-    {
-        title: "Why is only Gmail supported?",
-        content: "Besides its popularity, Gmail was the only email provider, I could find, that supported an accessible API which allowed me to build the necessary features for MailSave. If I become aware of any other email providers that support a similar API, and people ask for it, we can evaulate building MailSave for other email providers.",
-    },
-    {
-        title: "Won't turning on email notifications spam my Inbox with emails I don't want?",
-        content: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-        title: "Do my emails remain private with MailSave activated?",
-        content: "Yes. All emails and its contents are fetched and processed directly on your device. They are never sent anywhere and are not stored by Jajanku.",
-    },
-    {
-        title: "What languages do my emails have to be in?",
-        content: "MailSave currently supports English and Indonesian emails. Support for other languages can be obtained by installing the optional larger language model.",
-    }
-];
+import strings from "../../strings.json";
+
+const languageCode = Astro.url.searchParams.get('lang') || 'en';
+const faqs = strings[languageCode as keyof typeof strings].faqs.content;
+const preTitle = strings[languageCode as keyof typeof strings].faqs.preTitle;
+
+const contact = strings[languageCode as keyof typeof strings].faqs.contact;
 ---
 
 <DarkLayout title="FAQs - Jajanku">
@@ -30,7 +21,7 @@ const faqs = [
         </div>
 
         <h1 class="md:text-6xl text-4xl font-bold mb-4 text-white">
-            Frequently asked questions about <span class="text-color-primary-active">MailSave</span>
+            {preTitle} <span class="text-color-primary-active">MailSave</span>
         </h1>
 
         <Accordion data={faqs} />
@@ -39,8 +30,8 @@ const faqs = [
     <hr class="border-gray-600" />
     <div class="py-12">
         <Contact
-            title="Have other questions?"
-            body="Please don't hesitate to send an email to:"
+            title={contact.title}
+            body={contact.body}
         />
     </div>
 </DarkLayout>

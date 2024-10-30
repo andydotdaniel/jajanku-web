@@ -1,0 +1,48 @@
+{
+    "en": {
+        "faqs": {
+            "preTitle": "Frequently asked questions about",
+            "content": [
+                {
+                    "title": "Why is only Gmail supported?",
+                    "content": "Besides its popularity, Gmail was the only email provider, I could find, that supported an accessible API which allowed me to build the necessary features for MailSave. If I become aware of any other email providers that support a similar API, and people ask for it, we can evaulate building MailSave for other email providers."
+                },
+                {
+                    "title": "Do my emails remain private with MailSave activated?",
+                    "content": "Yes. All emails and its contents are fetched and processed directly on your device. They are never sent anywhere and are not stored by Jajanku."
+                },
+                {
+                    "title": "What languages do my emails have to be in?",
+                    "content": "MailSave currently supports English and Indonesian emails."
+                }
+            ],
+            "contact": {
+                "title": "Have other questions?",
+                "body": "Please don't hesitate to send an email to:"
+            }
+        }
+    },
+    "id": {
+        "faqs": {
+            "preTitle": "Pertanyaan yang sering ditanyakan tentang",
+            "content": [
+                {
+                    "title": "Kenapa hanya Gmail yang didukung?",
+                    "content": "Selain popularitasnya, Gmail merupakan satu-satunya penyedia email yang ditemukan mendukung API yang dapat dipakai sehingga memungkinkan dibikinnya fitur-fitur yang diperlukan untuk MailSave. Jika saya menemukan penyedia email lain yang menyediakan API serupa dan ada permintaan dari pengguna, dapat dipertimbangkan untuk mengembangkan MailSave bagi penyedia email lainnya."
+                },
+                {
+                    "title": "Apakah email saya tetap bersifat rahasia jika MailSave diaktifkan?",
+                    "content": "Ya. Semua email dan isinya diunduh dan diproses langsung pada perangkat kamu. Email kamu tidak pernah dikirim ke mana pun dan tidak disimpan oleh Jajanku."
+                },
+                {
+                    "title": "Email saya harus menggunakan bahasa apa?",
+                    "content": "MailSave saat ini mendukung email berbahasa Inggris dan Indonesia."
+                }
+            ],
+            "contact": {
+                "title": "Punya pertanyaan lain?",
+                "body": "Silahkan mengirim email ke:"
+            }
+        }
+    }
+}
