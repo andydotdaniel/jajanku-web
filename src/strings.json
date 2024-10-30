@@ -20,6 +20,66 @@
                 "title": "Have other questions?",
                 "body": "Please don't hesitate to send an email to:"
             }
+        },
+        "emailNotifications": {
+            "content": {
+                "preTitle": "Turn on email notifications for your",
+                "titleHighlight": "payment methods",
+                "bodyOne": "MailSave works best for people who frequently make payments using",
+                "bodyTwo": "QR codes or credit cards",
+                "bodyThree": "The providers for these payment methods normally support email notifications which can be processed by MailSave to automatically save expenses.",
+                "illustrationUrl": "/img/mailsave/illustration-gmail-notification-en.png",
+                "sections": [
+                    {
+                        "title": "How to turn on email notifications in payment apps?",
+                        "body": "Because Jajanku was developed in Indonesia, this section will give examples of how to turn on email notifications for several popular Indonesian banking and payment apps. Where applicable, the same principles can be applied for apps in other regions."
+                    },
+                    {
+                        "title": "How to turn on email notifications for credit cards 💳?",
+                        "body": "Email notifications for credit cards are normally enabled by default. Please contact your credit card issuer if this is not the case."
+                    }
+                ]
+            },
+            "paymentAppExamples": [
+                {
+                    "title": "myBCA",
+                    "icon": "/img/mailsave/logo-mybca.png",
+                    "content": "Email notifications for QR payments using the myBCA app are enabled by default."
+                },
+                {
+                    "title": "Bank Jago",
+                    "icon": "/img/mailsave/logo-jago.png",
+                    "content": "Navigate to More > tap Settings Icon on top right > select Notification Settings > Financial Activity, and turn on email notifications for Outgoing Transactions.",
+                    "attachments": [
+                        "/img/mailsave/demos/jago-screen-0-en.jpg",
+                        "/img/mailsave/demos/jago-screen-1-en.jpg"
+                    ]
+                },
+                {
+                    "title": "Livin' by Mandiri",
+                    "icon": "/img/mailsave/logo-mandiri.png",
+                    "content": "Email notifications for QR payments using the Livin' by Mandiri app are enabled by default."
+                },
+                {
+                    "title": "Bank OCBC",
+                    "icon": "/img/mailsave/logo-ocbc.png",
+                    "content": "Email notifications for QR payments using the Bank OCBC app are enabled by default."
+                },
+                {
+                    "title": "BRImo",
+                    "icon": "/img/mailsave/logo-brimo.png",
+                    "content": "Email notifications for QR payments using the BRImo app are enabled by default."
+                },
+                {
+                    "title": "OVO",
+                    "icon": "/img/mailsave/logo-ovo.png",
+                    "content": "Email notifications for QR payments using the OVO app are enabled by default."
+                }
+            ],
+            "contact": {
+                "title": "Have other questions? Or did we get something wrong?",
+                "body": "Please don't hesitate to send an email to:"
+            }
         }
     },
     "id": {
@@ -41,7 +101,67 @@
             ],
             "contact": {
                 "title": "Punya pertanyaan lain?",
-                "body": "Silahkan mengirim email ke:"
+                "body": "Silakan mengirim email ke:"
+            }
+        },
+        "emailNotifications": {
+            "content": {
+                "preTitle": "Aktifkan notifikasi email untuk",
+                "titleHighlight": "metode pembayaran kamu",
+                "bodyOne": "MailSave paling berguna untuk orang yang sering melakukan pembayaran menggunakan",
+                "bodyTwo": "QRIS atau kartu kredit",
+                "bodyThree": "Metode pembayaran ini biasanya ada notifikasi email yang dapat diproses oleh MailSave untuk menyimpan pengeluaran kamu secara otomatis.",
+                "illustrationUrl": "/img/mailsave/illustration-gmail-notification-id.png",
+                "sections": [
+                    {
+                        "title": "Bagaimana cara mengaktifkan notifikasi email buat aplikasi pembayaran?",
+                        "body": "Karena Jajanku dikembangkan di Indonesia, bagian ini akan memberikan contoh cara mengaktifkan notifikasi email untuk beberapa aplikasi perbankan dan pembayaran populer di Indonesia. Prinsip yang sama mungkin dapat diterapkan untuk aplikasi di wilayah lain."
+                    },
+                    {
+                        "title": "Bagaimana cara mengaktifkan notifikasi email untuk kartu kredit 💳?",
+                        "body": "Notifikasi email untuk kartu kredit biasanya sudah diaktifkan secara otomatis. Silakan hubungi penerbit kartu kredit Anda jika ini tidak seperti itu."
+                    }
+                ]
+            },
+            "paymentAppExamples": [
+                {
+                    "title": "myBCA",
+                    "icon": "/img/mailsave/logo-mybca.png",
+                    "content": "Notifikasi email untuk pembayaran QRIS dengan aplikasi myBCA bawaannya diaktifkan secara otomatis."
+                },
+                {
+                    "title": "Bank Jago",
+                    "icon": "/img/mailsave/logo-jago.png",
+                    "content": "Navigasi ke Lainnya > pilih simbol pengaturan pada atas kanan layar > pilih Pengaturan Notifikasi > Aktivitas Finansial, dan kemudian nyalakan notifikasi email buat Transaksi Keluar.",
+                    "attachments": [
+                        "/img/mailsave/demos/jago-screen-0-id.jpg",
+                        "/img/mailsave/demos/jago-screen-1-id.jpg"
+                    ]
+                },
+                {
+                    "title": "Livin' by Mandiri",
+                    "icon": "/img/mailsave/logo-mandiri.png",
+                    "content": "Notifikasi email untuk pembayaran QRIS dengan aplikasi Livin' by Mandiri bawaannya diaktifkan secara otomatis."
+                },
+                {
+                    "title": "Bank OCBC",
+                    "icon": "/img/mailsave/logo-ocbc.png",
+                    "content": "Notifikasi email untuk pembayaran QRIS dengan aplikasi Bank OCBC bawaannya diaktifkan secara otomatis."
+                },
+                {
+                    "title": "BRImo",
+                    "icon": "/img/mailsave/logo-brimo.png",
+                    "content": "Notifikasi email untuk pembayaran QRIS dengan aplikasi BRImo bawaannya diaktifkan secara otomatis."
+                },
+                {
+                    "title": "OVO",
+                    "icon": "/img/mailsave/logo-ovo.png",
+                    "content": "Notifikasi email untuk pembayaran QRIS dengan aplikasi OVO bawaannya diaktifkan secara otomatis."
+                }
+            ],
+            "contact": {
+                "title": "Punya pertanyaan lain? Atau ada yang salah?",
+                "body": "Silakan mengirim email ke:"
             }
         }
     }

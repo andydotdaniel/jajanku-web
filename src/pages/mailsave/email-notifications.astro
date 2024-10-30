@@ -1,44 +1,27 @@
 ---
+export const prerender = false;
+
 import DarkLayout from "../../layouts/DarkLayout.astro";
 import Contact from "../../components/Contact.astro";
 import Accordion from "../../components/Accordion.astro";
 
-const paymentAppExamples = [
-    {
-        title: 'myBCA',
-        icon: '/img/mailsave/logo-mybca.png',
-        content: 'Email notifications for QR payments using the myBCA app are enabled by default.'
-    },
-    {
-        title: 'Bank Jago',
-        icon: '/img/mailsave/logo-jago.png',
-        content: 'Navigate to More > tap Settings Icon on top right > select Notification Settings > Financial Activity, and turn on email notifications for Outgoing Transactions.',
-        attachments: [
-            '/img/mailsave/demos/jago-screen-0.jpg',
-            '/img/mailsave/demos/jago-screen-1.jpg',
-        ]
-    },
-    {
-        title: "Livin' by Mandiri",
-        icon: '/img/mailsave/logo-mandiri.png',
-        content: "Email notifications for QR payments using the Livin' by Mandiri app are enabled by default.",
-    },
-    {
-        title: "Bank OCBC",
-        icon: '/img/mailsave/logo-ocbc.png',
-        content: "Email notifications for QR payments using the Bank OCBC app are enabled by default.",
-    },
-    {
-        title: "BRImo",
-        icon: '/img/mailsave/logo-brimo.png',
-        content: "Email notifications for QR payments using the BRImo app are enabled by default.",
-    },
-    {
-        title: "OVO",
-        icon: '/img/mailsave/logo-ovo.png',
-        content: "Email notifications for QR payments using the OVO app are enabled by default.",
-    }
-];
+import strings from "../../strings.json";
+
+const languageCode = Astro.url.searchParams.get('lang') || 'en';
+const paymentAppExamples = strings[languageCode as keyof typeof strings].emailNotifications.paymentAppExamples;
+const contact = strings[languageCode as keyof typeof strings].emailNotifications.contact;
+
+const preTitle = strings[languageCode as keyof typeof strings].emailNotifications.content.preTitle;
+const titleHighlight = strings[languageCode as keyof typeof strings].emailNotifications.content.titleHighlight;
+
+const bodyOne = strings[languageCode as keyof typeof strings].emailNotifications.content.bodyOne;
+const bodyTwo = strings[languageCode as keyof typeof strings].emailNotifications.content.bodyTwo;
+const bodyThree = strings[languageCode as keyof typeof strings].emailNotifications.content.bodyThree;
+
+const illustrationUrl = strings[languageCode as keyof typeof strings].emailNotifications.content.illustrationUrl;
+
+const sectionOne = strings[languageCode as keyof typeof strings].emailNotifications.content.sections[0];
+const sectionTwo = strings[languageCode as keyof typeof strings].emailNotifications.content.sections[1];
 ---
 
 <DarkLayout title="Enable Email Notifications - Jajanku">
@@ -48,36 +31,35 @@ const paymentAppExamples = [
         </div>
 
         <h1 class="md:text-6xl text-4xl font-bold mb-4 text-white">
-            Turn on email notifications for your <span class="text-color-primary-active">payment methods</span>.
+            {preTitle} <span class="text-color-primary-active">{titleHighlight}</span>.
         </h1>
 
         <p>
-            MailSave works best for people who frequently make payments using <span class="underline">QR codes or credit cards</span>. The providers for these payment methods
-            normally support email notifications which can be processed by MailSave to automatically save expenses.
+            {bodyOne} <span class="underline">{bodyTwo}</span>. {bodyThree}
         </p>
 
         <div class="flex flex-col items-center">
-            <img src="/img/mailsave/illustration-gmail-notification.png" alt="Email Notification" class="w-full mt-6 drop-shadow-lg" style="max-width:480px;" />
+            <img src={illustrationUrl} alt="Email Notification" class="w-full mt-6 drop-shadow-lg" style="max-width:480px;" />
         </div>
 
         <div class="mt-12">
-            <h2>How to turn on email notifications in payment apps?</h2>
-            <p class="mt-4">Because Jajanku was developed in Indonesia, this section will give examples of how to turn on email notifications for several popular Indonesian banking and payment apps. Where applicable, the same principles can be applied for apps in other regions.</p>
+            <h2>{sectionOne.title}</h2>
+            <p class="mt-4">{sectionOne.body}</p>
 
             <Accordion data={paymentAppExamples} />
         </div>
 
         <div class="mt-12">
-            <h2>How to turn on email notifications for credit cards 💳?</h2>
-            <p class="mt-4">Email notifications for credit cards are normally enabled by default. Please contact your credit card issuer if this is not the case.</p>
+            <h2>{sectionTwo.title}</h2>
+            <p class="mt-4">{sectionTwo.body}</p>
         </div>
     </div>
 
     <hr class="border-gray-600" />
     <div class="py-12">
         <Contact
-            title="Have other questions? Or did we get something wrong?"
-            body="Please don't hesitate to send an email to:"
+            title={contact.title}
+            body={contact.body}
         />
     </div>
 </DarkLayout>
